@@ -1,1 +1,4 @@
+.eggs
 .idea
+build
+dist

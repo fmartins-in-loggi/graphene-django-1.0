@@ -15,7 +15,7 @@ from .utils import (DJANGO_FILTER_INSTALLED, get_model_fields,
 
 
 def construct_fields(options):
-    _model_fields = get_model_fields(options.model)
+    _model_fields = get_model_fields(options)
     only_fields = options.only_fields
     exclude_fields = options.exclude_fields
 
@@ -50,6 +50,7 @@ class DjangoObjectTypeMeta(ObjectTypeMeta):
             name=name,
             description=attrs.pop('__doc__', None),
             model=None,
+            reverse_fields=False,
             local_fields=None,
             only_fields=(),
             exclude_fields=(),
